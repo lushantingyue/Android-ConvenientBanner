@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 // 发布aar 至 jcenter仓库: https://www.cnblogs.com/qianxudetianxia/p/4322331.html
 //apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
@@ -25,6 +26,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile ('com.android.support:appcompat-v7:21.0.3')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 def siteUrl = 'https://github.com/saiwu-bigkoo/Android-ConvenientBanner'                        // #CONFIG# // project homepage
@@ -98,4 +100,7 @@ bintray {
         licenses = ["Apache-2.0"]
         publish = true
     }
+}
+repositories {
+    mavenCentral()
 }
